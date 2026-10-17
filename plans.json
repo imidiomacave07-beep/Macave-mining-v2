@@ -1,0 +1,10 @@
+[
+  { "name": "Plano Básico 🚀", "price": 20, "duration": "30 dias", "benefits": ["Mineração 24/7", "Suporte básico"] },
+  { "name": "Plano Bronze 🥉", "price": 30, "duration": "30 dias", "benefits": ["Mineração 24/7", "Suporte via chat"] },
+  { "name": "Plano Prata 🥈", "price": 50, "duration": "30 dias", "benefits": ["Mineração 24/7", "Relatórios semanais"] },
+  { "name": "Plano Ouro 🥇", "price": 100, "duration": "30 dias", "benefits": ["Mineração avançada", "Suporte prioritário"] },
+  { "name": "Plano Platina 💎", "price": 200, "duration": "30 dias", "benefits": ["Mineração máxima", "Acesso a bônus secretos"] },
+  { "name": "Plano Diamante 🔥", "price": 500, "duration": "30 dias", "benefits": ["Mineração máxima", "Relatórios detalhados", "Suporte dedicado"] },
+  { "name": "Plano Elite ⚡", "price": 1000, "duration": "30 dias", "benefits": ["Mineração elite", "Suporte 24h", "Promoções exclusivas"] },
+  { "name": "Plano VIP ✨", "price": 5000, "duration": "30 dias", "benefits": ["Mineração máxima + bônus", "Suporte VIP", "Eventos exclusivos"] }
+]

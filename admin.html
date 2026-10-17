@@ -1,0 +1,47 @@
+<h2>Saques (Withdrawals)</h2>
+
+<div id="withdrawals"></div>
+
+<script>
+async function loadWithdrawals(){
+  const res = await fetch("/admin/withdrawals");
+  const data = await res.json();
+
+  let html = "";
+
+  data.forEach(w => {
+    html += `
+      <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+        <p>Usuário: ${w.userId.username}</p>
+        <p>Valor: ${w.amount}</p>
+        <p>Status: ${w.status}</p>
+
+        <button onclick="approve('${w._id}')">Aprovar</button>
+        <button onclick="reject('${w._id}')">Rejeitar</button>
+      </div>
+    `;
+  });
+
+  document.getElementById("withdrawals").innerHTML = html;
+}
+
+async function approve(id){
+  await fetch("/admin/withdraw/approve", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({ id })
+  });
+  loadWithdrawals();
+}
+
+async function reject(id){
+  await fetch("/admin/withdraw/reject", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({ id })
+  });
+  loadWithdrawals();
+}
+
+loadWithdrawals();
+</script>
