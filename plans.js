@@ -1,25 +1,7 @@
-const plans = [
-  {
-    id: 1,
-    name: "Plano Básico",
-    price: 10,
-    dailyProfit: 0.5,
-    duration: 30
-  },
-  {
-    id: 2,
-    name: "Plano Pro",
-    price: 50,
-    dailyProfit: 3,
-    duration: 30
-  },
-  {
-    id: 3,
-    name: "Plano VIP",
-    price: 100,
-    dailyProfit: 7,
-    duration: 30
-  }
+'use strict';
+// Static development examples only. Do not treat these values as guaranteed returns.
+module.exports = [
+  { id: 'starter', name: 'Starter', price: 25, currency: 'USDT', hashrateTH: 1, durationDays: 30 },
+  { id: 'basic', name: 'Basic', price: 100, currency: 'USDT', hashrateTH: 5, durationDays: 30 },
+  { id: 'pro', name: 'Pro', price: 250, currency: 'USDT', hashrateTH: 15, durationDays: 30 }
 ];
-
-module.exports = plans;

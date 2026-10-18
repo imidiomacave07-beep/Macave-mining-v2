@@ -1,26 +1,13 @@
-const mongoose = require("mongoose");
-
+'use strict';
+// Example only. Compare with the repository's existing User.js before replacing it.
+const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
-  email: String,
-  password: String,
-  balance: { type: Number, default: 0 },
-
-  depositStatus: {
-    type: String,
-    enum: ["ACTIVE", "SUSPENDED", "BLOCKED"],
-    default: "ACTIVE"
-  },
-
-  failedLogins: { type: Number, default: 0 },
-  multipleIPs: { type: Boolean, default: false },
-  withdrawImmediatelyAfterDeposit: { type: Boolean, default: false },
-  unusualAmountPattern: { type: Boolean, default: false },
-
-  actionsPerMinute: { type: Number, default: 0 },
-  multipleAccountsIP: { type: Boolean, default: false },
-  depositPattern: { type: String, default: "" },
-
-  createdAt: { type: Date, default: Date.now }
-});
-
-module.exports = mongoose.model("User", userSchema);
+  name: { type: String, trim: true, maxlength: 120, default: '' },
+  email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+  passwordHash: { type: String, required: true, select: false },
+  role: { type: String, enum: ['user', 'admin'], default: 'user' },
+  balance: { type: Number, min: 0, default: 0 },
+  referralCode: { type: String, trim: true, unique: true, sparse: true },
+  referredBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null }
+}, { timestamps: true });
+module.exports = mongoose.models.User || mongoose.model('User', userSchema);
